@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SCAN</title>
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+    <link rel="icon" type="image/png" href="./favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="./favicon-16x16.png" sizes="16x16">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <style>
+  *, *:before, *:after {
+    box-sizing: border-box;
+  }
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: sans-serif;
+    font-weight: 200;
+    background-color: #fcfcfc;
+  }
+
+  .container {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 16px;
+    height: 100%;
+    display: table;
+  }
+
+  .cell {
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  .headline {
+    color: #F2C94C;
+    font-size: 64px;
+    text-align: center;
+    margin-bottom: 32px;
+    font-family: sans-serif;
+  }
+
+  .logo {
+    margin-bottom: 32px;
+  }
+
+  .hero {
+    text-align: center;
+  }
+
+  .description {
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 48px;
+    font-size: 18px;
+    line-height: 1.4;
+    color: #333;
+  }
+
+  .download {
+    text-align: center;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 16px 32px;
+    text-decoration: none;
+    color: #000;
+  }
+
+  .btn-dl {
+    background-color: #eee;
+    color: #ccc;
+    margin: 10px;
+    box-shadow: 0 1px 1px 0 #ddd;
+    transition: all 140ms ease;
+  }
+
+  .btn-dl.active {
+    color: #000;
+    background-color: #ddd;
+    box-shadow: 0 1px 1px 0 #aaa;
+  }
+
+  .btn-dl.active:hover {
+    color: #fff;
+    background-color: #F2C94C;
+  }
+
+  .btn-dl small {
+    font-size: 10px;
+    opacity: 0.6;
+  }
+
+  .headline-dl {
+    font-size: 16px;
+  }
+
+  .headline-dl .version {
+    display: block;
+    font-weight: 200;
+    font-size: 12px;
+    color: #999;
+  }
+
+</style>
+
+  </head>
+  <body>
+    <div class="container">
+      <div class="cell">
+        <h1>404</h1>
+<p>Whoops. Looks like what you're looking for can't be found.</p>
+      </div>
+    </div>
+    <script>
+  // polyfill indexOf for IE8
+  if (!Array.prototype.indexOf) {
+    Array.prototype.indexOf = function(elt)
+    {
+      var len = this.length >>> 0
+
+      var from = Number(arguments[1]) || 0
+      from = (from < 0)
+           ? Math.ceil(from)
+           : Math.floor(from);
+      if (from < 0)
+        from += len
+
+      for (; from < len; from++)
+      {
+        if (from in this &&
+            this[from] === elt)
+          return from
+      }
+      return -1;
+    }
+  }
+
+  function getOS() {
+    var userAgent = window.navigator.userAgent,
+        platform = window.navigator.platform,
+        macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'],
+        windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'],
+        iosPlatforms = ['iPhone', 'iPad', 'iPod'],
+        os = null
+
+    if (macosPlatforms.indexOf(platform) !== -1) {
+      os = 'macos'
+    } else if (iosPlatforms.indexOf(platform) !== -1) {
+      os = 'ios'
+    } else if (windowsPlatforms.indexOf(platform) !== -1) {
+      os = 'windows'
+    } else if (/Android/.test(userAgent)) {
+      os = 'android'
+    } else if (!os && /Linux/.test(platform)) {
+      os = 'linux'
+    }
+
+    return os
+  }
+
+  var osElement = document.querySelector('.dl-' + getOS())
+  if (osElement) {
+    osElement.className += ' active'
+  }
+
+</script>
+
+  </body>
+</html>
